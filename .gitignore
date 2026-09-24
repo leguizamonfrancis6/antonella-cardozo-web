@@ -1,0 +1,26 @@
+# ==========================================
+# Archivos que Git NO tiene que guardar
+# ==========================================
+
+# Documentos de trabajo con datos personales de la clienta
+*.docx
+
+# Archivos temporales que crea Word mientras un documento está abierto
+~$*
+
+# Carpetas que se generan automáticamente a partir del sitio
+sitio-para-publicar/
+vista-previa/
+
+# Configuración local de Claude Code
+.claude/
+
+# Prototipos y archivos viejos que ya no forman parte del sitio
+Antonella_Cardozo_Prototipo_Nuevo_Movil.html
+styles.css.css
+
+# Fotos originales que no usa la página (quedan en la compu)
+img/tribunales.jpeg
+img/tribunales*.jfif
+img/antonella_cardozo.jpeg
+img/antonella_recorte.png
