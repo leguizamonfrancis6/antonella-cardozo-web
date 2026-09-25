@@ -56,6 +56,12 @@ a {
     text-decoration: none;
 }
 
+/* Oculta el cartel "Powered by Netlify" que Netlify agrega solo
+   abajo a la derecha (es un iframe con este id que inserta su script) */
+#nl-badge-frame {
+    display: none !important;
+}
+
 
 /* ========================================
    CONTENEDOR GENERAL
