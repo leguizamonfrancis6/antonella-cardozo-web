@@ -5,6 +5,9 @@
 # Documentos de trabajo con datos personales de la clienta
 *.docx
 
+# Documentos internos de marca (no forman parte del sitio)
+Manual de Identidad de Marca*.pdf
+
 # Archivos temporales que crea Word mientras un documento está abierto
 ~$*
 

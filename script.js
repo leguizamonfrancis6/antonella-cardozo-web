@@ -42,16 +42,13 @@ if (botonMenu && menu) {
 ======================================== */
 
 // Elementos que aparecen al entrar en pantalla.
-// Los que están en grupo (tarjetas, etapas, áreas) aparecen uno tras otro.
+// Los que están en grupo (tarjetas, áreas) aparecen uno tras otro.
 const gruposReveal = [
-    ".about-intro",
     ".study-details",
     ".press-intro",
     ".press-card",
     ".practice-heading",
-    ".process h2",
-    ".process-item",
-    ".process-quote",
+    ".practice-closing",
     ".other-areas-heading",
     ".other-area",
     ".contact-heading",
