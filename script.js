@@ -150,6 +150,12 @@ if (botonMail && panelMail && formulario) {
 
             if (!respuesta.ok) throw new Error("Respuesta no válida");
 
+            // FormSubmit puede contestar "bien" pero avisar adentro que no
+            // envió el mail (por ejemplo, si el formulario no está activado).
+            // Por eso leemos su respuesta y confirmamos que diga success: "true".
+            const resultado = await respuesta.json();
+            if (String(resultado.success) !== "true") throw new Error(resultado.message || "No enviado");
+
             formulario.reset();
             contador.textContent = "0 / 500";
             estado.textContent = "¡Gracias! Tu consulta fue enviada. Te voy a responder a la brevedad.";
