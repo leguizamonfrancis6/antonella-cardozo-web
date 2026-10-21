@@ -9,12 +9,9 @@
     --marron: #7A6357;
     --borde: #B9A794;
     --salvia: #5E7372;
-    --celeste: #9DB6B5;   /* color secundario del manual de marca */
+    --celeste: #9DB6B5;
 
-    /* Visibilidad de la foto de fondo del Hero (0 = invisible, 1 = foto entera) */
-    --fondo-opacidad: 0.3;
-
-    /* Curva de movimiento de las animaciones: arranca rápido y frena suave al final */
+    --fondo-opacidad: 0.3;   /* foto de tribunales del Hero */
     --suave: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -59,10 +56,6 @@ a {
     color: inherit;
     text-decoration: none;
 }
-
-/* ========================================
-   CONTENEDOR GENERAL
-======================================== */
 
 .container {
     width: min(1200px, 90%);
@@ -155,8 +148,7 @@ a {
     font-weight: 700;
 }
 
-/* Botón del menú: dos líneas finas que se cruzan al abrir.
-   En computadora está oculto; aparece en tablet y celular. */
+/* Dos líneas que se cruzan al abrir; solo en tablet y celular */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -189,7 +181,7 @@ a {
 
 
 /* ========================================
-   BOTONES (se reutilizan en toda la página)
+   BOTONES
 ======================================== */
 
 .button {
@@ -239,16 +231,13 @@ a {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background-color: var(--crema);
     min-height: 100vh;
     padding: 150px 0 90px;
     display: flex;
     align-items: center;
 }
 
-/* Foto de tribunales de fondo: en blanco y negro con un tono cálido,
-   muy transparente, y que se desvanece hacia abajo para fundirse
-   con la sección siguiente */
+/* Foto de tribunales: desaturada, tenue y fundida hacia abajo */
 .hero::before {
     content: "";
     position: absolute;
@@ -261,9 +250,7 @@ a {
     mask-image: linear-gradient(to bottom, #000 55%, transparent);
 }
 
-/* Velo crema sobre el lado izquierdo del fondo: calma la foto detrás
-   del texto para que se lea claro, y se desvanece hacia la derecha
-   para que el edificio y Antonella se sigan viendo */
+/* Velo crema detrás del texto para que se lea sobre la foto */
 .hero::after {
     content: "";
     position: absolute;
@@ -356,15 +343,13 @@ a {
     z-index: 0;
 }
 
-/* La foto de Antonella está recortada (PNG sin fondo), así su silueta
-   queda sólida sobre el fondo de tribunales.
-   - left: la corre a la derecha para centrarla dentro del marco
-     (el marco ocupa el 82% derecho del contenedor).
-   - La máscara difumina solo el final, donde la foto corta las piernas. */
+/* El corrimiento centra la foto dentro del marco (que ocupa el 82% derecho);
+   la máscara difumina el corte inferior */
 .hero-image {
     position: relative;
     left: calc(12% + 8px);
     z-index: 1;
+    overflow: hidden;
     -webkit-mask-image: linear-gradient(to bottom, #000 93%, transparent 100%);
     mask-image: linear-gradient(to bottom, #000 93%, transparent 100%);
 }
@@ -378,7 +363,6 @@ a {
     filter: saturate(0.85);
 }
 
-/* Mismo corrimiento que la foto, y centrado debajo de ella */
 .hero-registration {
     position: relative;
     left: calc(9% + 8px);
@@ -416,36 +400,25 @@ a {
     padding: 112px 0 80px;
 }
 
-.about .section-eyebrow {
-    margin-bottom: 16px;
-}
-
-/* Formación */
-
 .study-details {
-    display: grid;
-    grid-template-columns: 1fr;
     margin-top: 34px;
     border-top: 1px solid var(--borde);
 }
 
 .study-detail {
-    display: block;
-    padding: 22px 0 0;
+    padding-top: 22px;
 }
 
 .study-detail h3,
 .press-intro {
-    margin: 0 0 6px;
+    margin-bottom: 6px;
     font-family: "Cormorant Garamond", serif;
     font-size: 23px;
-    font-style: normal;
     font-weight: 500;
-    color: var(--marron-oscuro);
 }
 
 .study-detail h3 {
-    margin: 0 0 8px;
+    margin-bottom: 8px;
 }
 
 .study-list {
@@ -501,7 +474,7 @@ a {
     transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-/* Encuadre hacia la derecha: muestra a Antonella en la foto del jury */
+/* En la foto del jury, Antonella está sobre la derecha */
 .press-image img.press-img-derecha {
     object-position: 92% center;
 }
@@ -574,7 +547,6 @@ a {
 
 
 /* Tarjetas que se apilan al hacer scroll */
-
 .practice-card {
     position: sticky;
     top: 110px;
@@ -587,8 +559,7 @@ a {
     box-shadow: 0 -12px 30px rgba(33, 25, 21, 0.25);
 }
 
-/* Cada tarjeta se detiene un poco más abajo que la anterior,
-   así se ve el borde superior de las que quedan detrás */
+/* Cada una frena un poco más abajo, así asoma el borde de las anteriores */
 .practice-card:nth-child(2) { top: 124px; }
 .practice-card:nth-child(3) { top: 138px; }
 .practice-card:nth-child(4) { top: 152px; }
@@ -609,7 +580,6 @@ a {
     color: var(--marron);
 }
 
-/* Cierre de la sección: frase grande en cursiva + nota chica */
 .practice-closing {
     max-width: 680px;
     margin-top: 80px;
@@ -624,7 +594,7 @@ a {
     line-height: 1.3;
 }
 
-/* "ad hoc" ya está en cursiva: lo dejamos recto para que se distinga */
+/* Dentro de una frase en cursiva, el énfasis va recto */
 .practice-closing-quote em {
     font-style: normal;
 }
@@ -638,7 +608,7 @@ a {
 
 
 /* ========================================
-   OTRAS ÁREAS (vuelve al crema, más discreta)
+   OTRAS ÁREAS
 ======================================== */
 
 .other-areas {
@@ -684,13 +654,12 @@ a {
 
 
 /* ========================================
-   CONTACTO (celeste de la marca)
+   CONTACTO
 ======================================== */
 
 .contact {
     padding: 125px 0;
     background-color: var(--celeste);
-    color: var(--marron-oscuro);
 }
 
 .contact-container {
@@ -700,8 +669,7 @@ a {
     align-items: start;
 }
 
-/* Sobre el celeste, la etiqueta "CONTACTO" va en el tono más oscuro
-   para que se lea bien */
+/* El marrón no contrasta lo suficiente sobre el celeste */
 .contact .section-eyebrow {
     color: var(--marron-oscuro);
 }
@@ -723,7 +691,6 @@ a {
     border-top: 1px solid rgba(33, 25, 21, 0.25);
 }
 
-/* Cada dato es una fila: etiqueta a la izquierda, valor a la derecha */
 .contact-item {
     display: flex;
     justify-content: space-between;
@@ -757,14 +724,11 @@ a {
     transition: text-decoration-color 0.25s ease;
 }
 
-/* Al pasar el mouse aparece un subrayado (sobre el celeste, cambiar
-   el color del texto no se notaría lo suficiente) */
+/* Subrayado en vez de cambio de color: sobre el celeste no se notaría */
 .contact-item a:hover {
     text-decoration-color: currentColor;
 }
 
-
-/* --- Email: dirección + botón "Enviar mail" --- */
 
 .contact-email {
     display: flex;
@@ -795,10 +759,8 @@ a {
 }
 
 
-/* --- Panel que se desliza hacia abajo ---
-   Truco: una grilla con una fila de alto "0fr" (cerrada) que pasa
-   a "1fr" (abierta). El navegador anima ese cambio de alto. */
-
+/* Panel desplegable: animar la fila de 0fr a 1fr permite
+   transicionar hasta la altura del contenido */
 .email-panel {
     display: grid;
     grid-template-rows: 0fr;
@@ -867,7 +829,6 @@ a {
     border-color: var(--marron-oscuro);
 }
 
-/* Campo trampa anti-spam: fuera de la vista */
 .form-honey {
     position: absolute;
     left: -9999px;
@@ -912,7 +873,6 @@ a {
 .form-status {
     font-size: 13px;
     line-height: 1.6;
-    color: var(--marron-oscuro);
 }
 
 .form-status:empty {
@@ -928,8 +888,6 @@ a {
     padding: 45px 0 25px;
 }
 
-/* Fila de arriba: marca a la izquierda, "volver arriba" a la derecha.
-   Abajo, ocupando todo el ancho: copyright y matrículas */
 .footer-container {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -958,7 +916,7 @@ a {
 .footer-bottom {
     grid-column: 1 / -1;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;  /* así el crédito queda centrado de verdad */
+    grid-template-columns: 1fr auto 1fr;   /* centra el crédito sin importar el ancho de los costados */
     gap: 8px 30px;
     padding-top: 18px;
     border-top: 1px solid var(--borde);
@@ -989,7 +947,17 @@ a {
    ANIMACIONES
 ======================================== */
 
-/* --- 1. Entrada del Hero --- */
+/* Entrada del Hero */
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes aparecer-fondo {
+    from { opacity: 0; }
+    to   { opacity: var(--fondo-opacidad); }
+}
 
 @keyframes aparecer-subiendo {
     from { opacity: 0; transform: translateY(18px); }
@@ -1016,49 +984,21 @@ a {
     to   { clip-path: inset(0 0 0 0); }
 }
 
-@keyframes aparecer {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
 .header          { animation: aparecer 0.9s ease both; }
+.hero::before    { animation: aparecer-fondo 2.2s ease both; }
 .hero-eyebrow    { animation: aparecer-subiendo 0.8s var(--suave) 0.1s both; }
 .hero-profession { animation: aparecer-subiendo 0.8s var(--suave) 0.7s both; }
 .hero-tagline    { animation: aparecer-subiendo 0.8s var(--suave) 0.82s both; }
 .hero-actions    { animation: aparecer-subiendo 0.8s var(--suave) 1.06s both; }
 
-.hero-image {
-    overflow: hidden;
-    animation: telon-foto 1.3s var(--suave) 0.2s both;
-}
-
-.hero-image img {
-    animation: acercar-foto 1.8s var(--suave) 0.2s both;
-}
-
-.hero-image-frame {
-    animation: dibujar-marco 1.1s var(--suave) 1.1s both;
-}
-
-.hero-registration {
-    animation: aparecer 0.8s ease 1.4s both;
-}
-
-/* El fondo de tribunales aparece lentamente, detrás de todo */
-@keyframes aparecer-fondo {
-    from { opacity: 0; }
-    to   { opacity: var(--fondo-opacidad); }
-}
-
-.hero::before {
-    animation: aparecer-fondo 2.2s ease both;
-}
+.hero-image        { animation: telon-foto 1.3s var(--suave) 0.2s both; }
+.hero-image img    { animation: acercar-foto 1.8s var(--suave) 0.2s both; }
+.hero-image-frame  { animation: dibujar-marco 1.1s var(--suave) 1.1s both; }
+.hero-registration { animation: aparecer 0.8s ease 1.4s both; }
 
 
-/* --- 3. Aparición suave de las secciones al bajar --- */
-
-/* script.js agrega la clase .reveal y, al llegar a la pantalla, .is-visible.
-   Sin JavaScript, nada queda escondido. */
+/* Aparición al bajar: script.js agrega .reveal y luego .is-visible,
+   así sin JavaScript nada queda oculto */
 .reveal {
     opacity: 0;
     transform: translateY(26px);
@@ -1070,8 +1010,6 @@ a {
     transform: none;
 }
 
-
-/* --- Accesibilidad: sin movimiento para quien lo pidió --- */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1094,13 +1032,11 @@ a {
 
 
 /* ========================================
-   RESPONSIVE (secciones terminadas)
+   RESPONSIVE
 ======================================== */
 
-/* Tablets y pantallas medianas */
+/* Tablet */
 @media (max-width: 900px) {
-
-    /* --- Menú desplegable --- */
 
     .menu-toggle {
         display: flex;
@@ -1144,7 +1080,6 @@ a {
         letter-spacing: 0;
     }
 
-    /* "a.nav-whatsapp" para ganarle a la regla ".nav a" de arriba */
     .nav a.nav-whatsapp {
         align-self: flex-start;
         margin-top: 24px;
@@ -1163,7 +1098,7 @@ a {
         color: var(--crema);
     }
 
-    /* Hero: el velo cubre de arriba hacia abajo (el texto va arriba) */
+    /* El texto queda arriba de la foto: el velo va de arriba hacia abajo */
     .hero::after {
         background: linear-gradient(
             to bottom,
@@ -1220,7 +1155,7 @@ a {
     }
 }
 
-/* Celulares */
+/* Celular */
 @media (max-width: 600px) {
 
     .header-container {
@@ -1239,15 +1174,11 @@ a {
         padding-top: 135px;
     }
 
-    .study-details {
-        grid-template-columns: 1fr;
-    }
-
     .study-detail {
-        padding: 18px 0 0;
+        padding-top: 18px;
     }
 
-    /* Notas de prensa: carrusel horizontal que se desliza con el dedo */
+    /* Notas de prensa en carrusel horizontal */
     .press-grid {
         grid-template-columns: none;
         grid-auto-flow: column;
@@ -1274,32 +1205,27 @@ a {
     .practice-card:nth-child(5) { top: 130px; }
     .practice-card:nth-child(6) { top: 140px; }
 
-    /* Email en dos líneas:
-       1.ª línea: "EMAIL" a la izquierda y la dirección a la derecha
-       2.ª línea: el botón "Enviar mail" centrado */
+    /* Email en dos líneas: etiqueta y dirección arriba, botón centrado abajo.
+       Con display: contents, dirección y botón pasan a ser celdas de la grilla */
     .contact-item-email {
         display: grid;
         grid-template-columns: auto 1fr;
         align-items: baseline;
     }
 
-    /* "display: contents" hace que la caja que envuelve dirección y botón
-       "desaparezca", así esos dos se acomodan directo en la grilla de arriba */
     .contact-email {
         display: contents;
     }
 
-    /* Letra un poco más chica (crece con el ancho de pantalla, entre 11 y 13px)
-       y sin cortes, para que la dirección entre en una sola línea */
+    /* La dirección tiene que entrar en una sola línea */
     .contact-email p {
         font-size: clamp(11px, 3.4vw, 13px);
         white-space: nowrap;
-        text-align: right;
     }
 
     .contact-email .email-toggle {
-        grid-column: 1 / -1;   /* ocupa todo el ancho de la fila */
-        justify-self: center;  /* y se centra */
+        grid-column: 1 / -1;
+        justify-self: center;
         margin-top: 6px;
     }
 
