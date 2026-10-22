@@ -1,8 +1,7 @@
 # Antonella Cardozo · Abogada
 
-Sitio web profesional para una abogada penalista de Santa Fe, Argentina. Es una landing de una sola página pensada para que la persona que atraviesa un proceso penal (como imputada, víctima o familiar) entienda en qué la puede acompañar y la contacte en el momento, por WhatsApp o por mail.
-
-**🔗 En vivo: [abogadasantafe.com.ar](https://abogadasantafe.com.ar)**
+Sitio web profesional para una abogada penalista de la Ciudad de Santa Fe, Argentina.
+**🔗 Web Activa: [abogadasantafe.com.ar](https://abogadasantafe.com.ar)**
 
 <p align="center">
   <img src="docs/captura-inicio.webp" alt="Inicio del sitio en escritorio: nombre y frase a la izquierda y retrato a la derecha, sobre una foto tenue de tribunales" width="760">
@@ -20,7 +19,7 @@ Quien busca una abogada penalista suele estar en una situación urgente y no sab
 
 - **¿Qué casos lleva?** Derecho Penal como área principal, con seis servicios explicados en lenguaje claro (defensa penal, querella, ejecución penal, régimen penal juvenil, contravenciones y restitución de bienes), y las áreas complementarias aparte.
 - **¿Puedo confiar en ella?** Matrículas provincial y federal visibles desde el inicio, formación y notas de prensa de medios locales sobre casos en los que participó.
-- **¿Cómo la contacto ya?** WhatsApp en el menú y en el botón principal, teléfono, urgencias 24/7 y un formulario de mail que se despliega sin salir de la página.
+- **¿Cómo la contacto?** WhatsApp en el menú y en el botón principal, teléfono, urgencias 24/7 y un formulario de mail que se despliega sin salir de la página.
 
 ## Funcionalidades
 
@@ -32,8 +31,7 @@ Quien busca una abogada penalista suele estar en una situación urgente y no sab
 
 ## Detalles técnicos
 
-| | |
-|---|---|
+
 | **Stack** | HTML, CSS y JavaScript sin frameworks, sin dependencias y sin paso de build |
 | **Peso** | ~760 KB en lo que descarga la página, con el retrato en WebP (de 610 KB a 37 KB) y PNG solo como respaldo |
 | **SEO** | Datos estructurados `schema.org/Attorney` con dirección y coordenadas para búsquedas locales, Open Graph para la vista previa en WhatsApp y redes, y URL canónica |
@@ -43,7 +41,7 @@ Quien busca una abogada penalista suele estar en una situación urgente y no sab
 Algunas decisiones:
 
 - **Sin framework.** Es una sola página con contenido fijo; React o un generador de sitios agregarían peso y mantenimiento sin aportar nada. El JavaScript completo tiene 140 líneas.
-- **WhatsApp primero, mail como alternativa.** WhatsApp es el canal más rápido para una consulta urgente, pero hay personas que prefieren escribir con calma. El formulario queda escondido detrás de un botón para no competir con la acción principal.
+- **WhatsApp primero, mail como alternativa.** WhatsApp es el canal más rápido para una consulta urgente, pero es importante ofrecer todos los medios de comunicación. El formulario queda escondido detrás de un botón para no competir con la acción principal.
 - **El nombre del inicio es un SVG.** El título tipográfico de la marca se exportó como SVG para que se vea igual en todos los dispositivos, con `alt` para buscadores y lectores de pantalla.
 
 ## Estructura
@@ -57,9 +55,6 @@ Algunas decisiones:
 └── CNAME             Dominio propio para GitHub Pages
 ```
 
-## Correr localmente
-
-No requiere instalación. Se puede abrir `index.html` directamente en el navegador o levantar un servidor estático:
 
 ```bash
 npx serve .
@@ -67,6 +62,6 @@ npx serve .
 
 ## Autoría
 
-Diseño y desarrollo: **[Quantum Dev](https://www.instagram.com/developerquantum/)**.
+Diseño y desarrollo: **[Quantum Dev](https://www.instagram.com/developerquantum/)**. de Leguizamón Francis.
 
 El nombre, las fotos, el logo y los textos pertenecen a Antonella Cardozo y no pueden reutilizarse. Las imágenes de prensa pertenecen a sus respectivos medios. El código está publicado como muestra de trabajo.
